@@ -1,0 +1,17 @@
+/* body {
+    background-color: #240869;
+    font-family: "Rammetto One", cursive;
+  } */
+  .sm-leaderboard {
+    color: #ff0000;
+    font-size: 1em;
+  }
+  .leaderboard {
+    color: #ffff00;
+    font-size: 1em;
+    font-style: italic;
+  }
+  .txtName {
+    font-size: 0.75em;
+  }
+  
