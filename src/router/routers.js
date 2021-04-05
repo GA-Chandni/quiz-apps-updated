@@ -14,27 +14,33 @@ import LocalDashboard from "../pages/localDashbaordPage";
 import Dashboard from "../components/adminPanel/dashboard";
 import QuizCreate from "../components/adminPanel/quizCreate";
 import QuizList from "../components/adminPanel/quizList";
-import Logout from "../pages/logoutPage";
+import StudentList from "../components/adminPanel/studentList";
+
+import LogoutPage from "../pages/logoutPage";
 
 // Others
 
-const RouterPath = () => {
+const RouterPath = (props) => {
   return (
     <Fragment>
-      <Router>
+      <h1>
+        Quiz Application
+      </h1>
+      <Router {...props}>
         <Switch>
           {/* <Redirect exact from="/" to="/organization" /> */}
           <Route exact path="/" component={LocalDashboard} />
-          <Route exact path="/login" component={LoginPage} />
-          <Route exact path="/sign-up" component={SignUp} />
+          <Route  path="/login" component={LoginPage} />
+          <Route  path="/sign-up" component={SignUp} />
 
           {/*======================== Admin Panel ==========================================  */}
           <Route exact path="/admin-panel/dashboard" component={Dashboard} />
-          <Route exact path="/admin-panel/quiz-create" component={QuizCreate} />
-          <Route exact path="/admin-panel/quiz-list" component={QuizList} />
-
+          <Route  path="/admin-panel/quiz-create" component={QuizCreate} />
+          <Route  path="/admin-panel/quiz-list" component={QuizList} />
+          <Route  path="/admin-panel/student-list" component={StudentList} />
+          
           {/*=========================== logOut Panel=======================================  */}
-          <Route path="./logout" component={Logout} />
+          <Route exact path="/logout" component={LogoutPage} />
 
         </Switch>
       </Router>

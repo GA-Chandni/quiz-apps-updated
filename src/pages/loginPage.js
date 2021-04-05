@@ -2,6 +2,7 @@
 import React,{Component} from "react";
 import { Button } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
+
 import "../style/loginPage.css";
 
 
@@ -9,6 +10,8 @@ export default class LoginPage extends Component {
   constructor(props) {
     super(props);
     // let loggedIn = false;
+
+    //if loggedIn False also get the local stroage token
     const token = localStorage.getItem("token");
     let loggedIn = true;
     if (token == null) {
@@ -36,17 +39,21 @@ export default class LoginPage extends Component {
   submitForm(e) {
     e.preventDefault();
     const { username, password } = this.state;
-    //login logic
+
+    //login logic and set the local stroage token 
     if (username === "admin" && password === "admin") {
+      localStorage.setItem("token",'chandnitryingtolearncoding')
       this.setState({
-        loggedIn: true,
+        loggedIn: true, //if loggedIn true 
       });
       // console.log('success');
     }
   }
 
+
+
   render() {
-    //redirect on the dashboard after login
+    //redirect on the dashboard after login if loggedIn true 
     if (this.state.loggedIn) {
       return <Redirect to="/admin-panel/dashboard/" />;
     }
