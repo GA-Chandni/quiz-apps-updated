@@ -1,11 +1,17 @@
+//Npm Modules
+import React, { Component } from "react";
 
-import React,{Component} from "react";
+//MATERIAL UI
 import { Button } from "@material-ui/core";
-import { Redirect } from "react-router-dom";
 
+//ROUTER 
+import { Link, Redirect } from "react-router-dom";
+
+//STYLE CSS
 import "../style/loginPage.css";
 
 
+//MAIN COMPONENTS: 
 export default class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -40,23 +46,43 @@ export default class LoginPage extends Component {
     e.preventDefault();
     const { username, password } = this.state;
 
-    //login logic and set the local stroage token 
+    //login logic and set the local stroage token
+    // if (username === "admin" && password === "admin") {
+    //   localStorage.setItem("token", "chandnitryingtolearncoding");
+    //   this.setState({
+    //     loggedIn: true, //if loggedIn true
+    //   });
+    //   // console.log('success');
+    // }
+
+    //for user panel and admin panel
     if (username === "admin" && password === "admin") {
-      localStorage.setItem("token",'chandnitryingtolearncoding')
+      localStorage.setItem("token", "chandnitryingtolearncoding");
       this.setState({
-        loggedIn: true, //if loggedIn true 
+        loggedIn: true, //if loggedIn true
       });
-      // console.log('success');
+      this.props.history.push("/admin-panel/dashboard/");
+    } else if (
+      this.state.username !== "admin" ||
+      this.state.password !== "admin"
+    ) {
+      this.setState({
+        loggedIn: true, //if loggedIn true
+      });
+      this.props.history.push("/quiz-test-start/");
+      return;
+    } else {
+      alert("Login Failed ! . Check Username and Password.");
     }
+
+    // console.log(`${this.state.username}`);
   }
 
-
-
   render() {
-    //redirect on the dashboard after login if loggedIn true 
-    if (this.state.loggedIn) {
-      return <Redirect to="/admin-panel/dashboard/" />;
-    }
+    //redirect on the dashboard after login if loggedIn true
+    // if (this.state.loggedIn) {
+    //   return <Redirect to="/admin-panel/dashboard/" />;
+    // }
 
     return (
       <div className="main">
@@ -122,6 +148,13 @@ export default class LoginPage extends Component {
                   >
                     Forgot Password?
                   </span>
+
+                  {/*================================= SIGN UP LINK HERE ================================*/}
+                  <Link to="/sign-up">
+                    <span href="#password-form" role="button" className='login-signup-btn'>
+                      Sign Up :)
+                    </span>
+                  </Link>
                 </div>
               </form>
             </div>

@@ -222,3 +222,8 @@ a:hover {
 .form__info {
   text-align: center;
 }
+
+
+.login-signup-btn{
+  color: blue;
+}

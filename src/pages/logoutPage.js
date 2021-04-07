@@ -5,20 +5,19 @@ import Button from "@material-ui/core/Button";
 export default class LogoutPage extends Component {
   constructor(props) {
     super(props);
-    localStorage.removeItem("token")
+    //remove the token
+    localStorage.removeItem("token");
   }
 
   render() {
     return (
       <div>
         Please Redirect on Login Page
-          <Link to="/login">
-        <Button variant="contained" color="secondary">
-
-              Login Again
-
-        </Button>
-          </Link>
+        <Link to="/login">
+          <Button variant="contained" color="secondary">
+            Login Again
+          </Button>
+        </Link>
       </div>
     );
   }

@@ -14,8 +14,14 @@ import LocalDashboard from "../pages/localDashbaordPage";
 import Dashboard from "../components/adminPanel/dashboard";
 import QuizCreate from "../components/adminPanel/quizCreate";
 import QuizList from "../components/adminPanel/quizList";
-import StudentList from "../components/adminPanel/studentList";
 
+
+//user panel costum
+import StudentList from "../components/adminPanel/studentList";
+import QuizStartTestPanel from '../components/userPanel/quizStartTestPanel'
+import StudentAttendQuizTest from '../components/userPanel/studentAttendQuizTest'
+
+//Logout 
 import LogoutPage from "../pages/logoutPage";
 
 // Others
@@ -38,6 +44,11 @@ const RouterPath = (props) => {
           <Route  path="/admin-panel/quiz-create" component={QuizCreate} />
           <Route  path="/admin-panel/quiz-list" component={QuizList} />
           <Route  path="/admin-panel/student-list" component={StudentList} />
+
+          {/*===============================User Panel=======================================  */}
+          
+          <Route  path="/quiz-test-start" component={QuizStartTestPanel} />
+          <Route  path="/quiz-test" component={StudentAttendQuizTest} />
           
           {/*=========================== logOut Panel=======================================  */}
           <Route exact path="/logout" component={LogoutPage} />
