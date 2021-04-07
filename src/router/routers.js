@@ -21,12 +21,18 @@ import StudentList from "../components/adminPanel/studentList";
 import QuizStartTestPanel from '../components/userPanel/quizStartTestPanel'
 import StudentAttendQuizTest from '../components/userPanel/studentAttendQuizTest'
 
+//Common Components and Quiz End Screen
+import StudentTotalScroed from '../common/totalScored';
+import QuizEndScreen from '../common/quizEndScreen';
+
+
 //Logout 
 import LogoutPage from "../pages/logoutPage";
 
 // Others
 
 const RouterPath = (props) => {
+  
   return (
     <Fragment>
       <h1>
@@ -49,6 +55,11 @@ const RouterPath = (props) => {
           
           <Route  path="/quiz-test-start" component={QuizStartTestPanel} />
           <Route  path="/quiz-test" component={StudentAttendQuizTest} />
+
+          {/* ================================= Common components /end Screen=========================== */}
+          <Route  path="/total-scored" component={StudentTotalScroed} />
+          <Route  path="/finished-quiz-screen" component={QuizEndScreen} />
+
           
           {/*=========================== logOut Panel=======================================  */}
           <Route exact path="/logout" component={LogoutPage} />

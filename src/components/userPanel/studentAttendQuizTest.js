@@ -4,19 +4,44 @@ import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 
 //CUSTOM => QUIZ QUESTION FILES
 import { Question } from "../../helper/quizQuestionBank";
+// import { Redirect } from "react-router";
+import QuizEndScreen from "../../common/quizEndScreen";
 
 //STYLE FILES
 
-function StudentAttendQuizTest() {
+function StudentAttendQuizTest(props) {
+  //stuff State
   const [currentQuestion, setCurrentQuestion] = useState(0);
-
   const [optionChosen, setOptionChosen] = useState("");
-  const nextQuestion = () => {
-      if(Question[currentQuestion].answer==optionChosen){
-            console.log('1');
-      }
+  const [score, setScore] = useState(0);
+  const [quizFinised, setQuizfinised] = useState(false);
+
+  //Click on Next Button Functionality
+
+  const nextQuestion = (props) => {
+    if (Question[currentQuestion].answer == optionChosen) {
+      let count = score + 1;
+      setScore(count);
+
+      console.log(count);
+    }
+    // alert(score);
+    setCurrentQuestion(currentQuestion + 1);
   };
 
+  //Finished Quiz Functinality==========
+  const finishedQuizQuestion = () => {
+    if (Question[currentQuestion].answer == optionChosen) {
+      // setScored(scored + 1);
+      let count = score + 1;
+      setScore(count);
+    }
+    //Finished the quiz question and showing end screen
+    setQuizfinised(props.history.push("/finished-quiz-screen"));
+  };
+
+  // console.log('setOptionChosen',setOptionChosen);
+  console.log("Question.length", Question.length - 1);
   return (
     <div className="quiz">
       <h3>{Question[currentQuestion].prompt}</h3>
@@ -24,27 +49,68 @@ function StudentAttendQuizTest() {
         <List className="optionList">
           <ListItem>
             <ListItemAvatar>A</ListItemAvatar>
-            <Button variant="contained" color="secondary">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setOptionChosen("A")}
+            >
               {Question[currentQuestion].optionA}
-            </Button >
+            </Button>
           </ListItem>
           <ListItem>
             <ListItemAvatar>B</ListItemAvatar>
-            <Button variant="contained" color="secondary">{Question[currentQuestion].optionB}</Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setOptionChosen("B")}
+            >
+              {Question[currentQuestion].optionB}
+            </Button>
           </ListItem>
           <ListItem>
             <ListItemAvatar>C</ListItemAvatar>
-            <Button variant="contained" color="secondary">{Question[currentQuestion].optionC}</Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setOptionChosen("C")}
+            >
+              {Question[currentQuestion].optionC}
+            </Button>
           </ListItem>
           <ListItem>
             <ListItemAvatar>D</ListItemAvatar>
-            <Button variant="contained" color="secondary">{Question[currentQuestion].optionD}</Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => setOptionChosen("D")}
+            >
+              {Question[currentQuestion].optionD}
+            </Button>
           </ListItem>
         </List>
       </div>
-      <Button variant="contained" color="secondary" onClick={nextQuestion}>
-        Next
-      </Button>
+
+      {/*================= FOR FINISHED QUIZ AND NEXT BUTTON ====================*/}
+      {currentQuestion === Question.length - 1 ? (
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={finishedQuizQuestion}
+          value={score}
+        >
+          Finished Quiz
+          {/* <QuizEndScreen score={score}/> */}
+        </Button>
+      ) : (
+        <Button variant="contained" color="secondary" onClick={nextQuestion}>
+          Next {score}
+        </Button>
+      )}
+      {Question.length > 0 &&(
+        <h1>
+          {score}
+        </h1>
+       )}
     </div>
   );
 }

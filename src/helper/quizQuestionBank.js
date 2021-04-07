@@ -1,6 +1,6 @@
 export const Question = [
     {
-      prompt: "Which of the following API is a MUST for every ReactJS component?",
+      prompt: "1.Which of the following API is a MUST for every ReactJS component?",
       optionA: "renderComponent",
       optionB: "getInitialState",
       optionC: "render",
@@ -8,7 +8,7 @@ export const Question = [
       answer: "A",
     },
     {
-      prompt: "In which directory React Components are saved?",
+      prompt: "2.In which directory React Components are saved?",
       optionA: "Inside js/components/",
       optionB: "Inside vendor/components/",
       optionC: " Inside external/components/",
@@ -16,7 +16,7 @@ export const Question = [
       answer: "A",
     },
     {
-      prompt: "How many elements does a react component return?",
+      prompt: "3.How many elements does a react component return?",
       optionA: "Elements",
       optionB: "Element",
       optionC: " Multiple Elements",
@@ -25,13 +25,14 @@ export const Question = [
     },
   
     {
-      prompt: "What is ReactJS?",
+      prompt: "4.What is ReactJS?",
       optionA: "Server side Framework",
       optionB: "User-interface framework",
       optionC: " A Library for building interaction interfaces",
       optionD: "None of These",
       answer: "C",
     },
+    
   
     // {
     //   prompt: "What are the two ways that data gets handled in React?",
