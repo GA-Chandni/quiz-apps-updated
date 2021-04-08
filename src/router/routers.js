@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect,
 } from "react-router-dom";
 
 //Custom
@@ -16,7 +15,7 @@ import QuizCreate from "../components/adminPanel/quizCreate";
 import QuizList from "../components/adminPanel/quizList";
 
 
-//user panel costum
+//user panel custom
 import StudentList from "../components/adminPanel/studentList";
 import QuizStartTestPanel from '../components/userPanel/quizStartTestPanel'
 import StudentAttendQuizTest from '../components/userPanel/studentAttendQuizTest'
@@ -31,8 +30,9 @@ import LogoutPage from "../pages/logoutPage";
 
 // Others
 
-const RouterPath = (props) => {
-  
+
+//Main Components: 
+const RouterPath = (props) => { 
   return (
     <Fragment>
       <h1>
@@ -40,7 +40,8 @@ const RouterPath = (props) => {
       </h1>
       <Router {...props}>
         <Switch>
-          {/* <Redirect exact from="/" to="/organization" /> */}
+          {/* ======================= Common Header========================================= */}
+          {/* <Redirect exact from="/dashboard" to="/logout" /> */}
           <Route exact path="/" component={LocalDashboard} />
           <Route  path="/login" component={LoginPage} />
           <Route  path="/sign-up" component={SignUp} />
@@ -51,12 +52,12 @@ const RouterPath = (props) => {
           <Route  path="/admin-panel/quiz-list" component={QuizList} />
           <Route  path="/admin-panel/student-list" component={StudentList} />
 
-          {/*===============================User Panel=======================================  */}
+          {/*============================User Panel=========================================  */}
           
           <Route  path="/quiz-test-start" component={QuizStartTestPanel} />
           <Route  path="/quiz-test" component={StudentAttendQuizTest} />
 
-          {/* ================================= Common components /end Screen=========================== */}
+          {/* ======================== Common components /Finsihed Quiz ==================== */}
           <Route  path="/total-scored" component={StudentTotalScroed} />
           <Route  path="/finished-quiz-screen" component={QuizEndScreen} />
 

@@ -9,11 +9,11 @@ export const Question = [
     },
     {
       prompt: "2.In which directory React Components are saved?",
-      optionA: "Inside js/components/",
-      optionB: "Inside vendor/components/",
+      optionA: "Inside vendor/components/",
+      optionB: "Inside js/components/",
       optionC: " Inside external/components/",
       optionD: "Inside vendor/",
-      answer: "A",
+      answer: "B",
     },
     {
       prompt: "3.How many elements does a react component return?",

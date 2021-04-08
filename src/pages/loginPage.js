@@ -43,7 +43,7 @@ export default class LoginPage extends Component {
   }
 
   submitForm(e) {
-    e.preventDefault();
+    e.preventDefault();     // Prevents prompt display
     const { username, password } = this.state;
 
     //login logic and set the local stroage token

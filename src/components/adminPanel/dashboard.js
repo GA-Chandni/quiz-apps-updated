@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Button, Typography } from "@material-ui/core/";
+import { Button} from "@material-ui/core/";
 
 import "../../style/dashboardStyle.css";
 

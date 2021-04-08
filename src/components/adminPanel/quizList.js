@@ -1,9 +1,10 @@
 import React from 'react'
+import StudentAttendQuizTest from '../userPanel/studentAttendQuizTest'
 
 export default function QuizList() {
     return (
         <div>
-            QuizList page under development
+            <StudentAttendQuizTest />
         </div>
     )
 }
