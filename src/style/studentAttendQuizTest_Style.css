@@ -1,0 +1,115 @@
+/* .mainDiv
+{
+    background-color: rgb(164, 95, 230) !important;
+} */
+
+
+
+#mainDiv {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 4px -2px 5px 0px rgba(206,118,57,0.75);
+  -webkit-box-shadow: 4px -2px 5px 0px rgba(206,118,57,0.75);
+  -moz-box-shadow: 4px -2px 5px 0px rgba(206,118,57,0.75);
+  }
+#mainBody {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center !important;  */
+  padding-bottom: 46px;
+
+}
+
+.quizBody,
+.mainDiv {
+  /* background-color: rgb(211, 209, 209); */
+  background-color: #c2eaba;
+  background-image: linear-gradient(
+    319deg,
+    #c2eaba 0%,
+    #c5f4e0 37%,
+    #efc2cf 100%
+  );
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  /* margin: 3%; */
+  margin-left: 12%;
+  margin-right: 6%;
+}
+.exitBtn {
+  border-radius: 50px !important;
+  width: 200px;
+  height: 100px;
+  margin-bottom: 20px;
+  font-size: xx-large !important;
+}
+
+#nextButton {
+    margin-top: -47px;
+  padding-bottom: 42px;
+  
+  }
+#nxtBtn{
+    padding-left: 28px;
+    padding-right: 28px;
+    padding-top: 12px;
+    padding-bottom: 14px;
+    border-radius: 16px;
+}
+
+#nxtBtn:focus,
+.exitBtn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+#nxtBtn:hover,
+.exitBtn:hover {
+  background-color: white !important;
+  color: black !important;
+  transition: 500ms;
+}
+.prompt-question {
+  padding-top: 42px;
+}
+
+
+#option,
+.optionPanel {
+  border: 3px solid transparent;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 40px;
+  margin: 10px 10px 10px 0;
+  min-height: 42px;
+  transition: 500ms;
+}
+#option:hover {
+  cursor: pointer;
+  border: 3px solid rgb(130, 18, 182);
+
+}
+.endScreen,.localDashboardPage{
+    /* background: turquoise; */
+    padding: 3%;
+    margin: 5%;
+    margin-left: 18%;
+    margin-right: 14%;
+    box-shadow: 4px -2px 5px 0px rgba(206,118,57,0.75);
+    -webkit-box-shadow: 4px -2px 5px 0px rgba(206,118,57,0.75);
+    -moz-box-shadow: 4px -2px 5px 0px rgba(206,118,57,0.75);
+    background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(57,131,218,1) 100%);
+}
+#option:active{
+    background:olive;
+}
+
+#option:focus{
+    background:olive;
+}

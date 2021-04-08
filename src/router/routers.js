@@ -22,7 +22,6 @@ import StudentAttendQuizTest from '../components/userPanel/studentAttendQuizTest
 
 //Common Components and Quiz End Screen
 import StudentTotalScroed from '../common/totalScored';
-import QuizEndScreen from '../common/quizEndScreen';
 
 
 //Logout 
@@ -59,7 +58,6 @@ const RouterPath = (props) => {
 
           {/* ======================== Common components /Finsihed Quiz ==================== */}
           <Route  path="/total-scored" component={StudentTotalScroed} />
-          <Route  path="/finished-quiz-screen" component={QuizEndScreen} />
 
           
           {/*=========================== logOut Panel=======================================  */}

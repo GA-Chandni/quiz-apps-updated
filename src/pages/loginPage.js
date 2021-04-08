@@ -42,6 +42,7 @@ export default class LoginPage extends Component {
     // console.log(e.target.value);
   }
 
+
   submitForm(e) {
     e.preventDefault();     // Prevents prompt display
     const { username, password } = this.state;
@@ -94,7 +95,6 @@ export default class LoginPage extends Component {
               </span>
             </ul>
             <div className="panel__forms">
-              {/*================================= Login Form ============================== */}
               <form
                 className="form panel__login-form"
                 onSubmit={this.submitForm}

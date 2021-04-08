@@ -1,22 +1,24 @@
+// NPM PACKAGE
 import React, { useState } from "react";
-import { Button, List, ListItem } from "@material-ui/core";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+
+//MATERIAL UI 
+import { Button, List, ListItem,ListItemAvatar } from "@material-ui/core";
 
 //CUSTOM => QUIZ QUESTION FILES
 import { Question } from "../../helper/quizQuestionBank";
 
-// import { Redirect } from "react-router";
-import QuizEndScreen from "../../common/quizEndScreen";
+//STYLE FILE
+import '../../style/studentAttendQuizTest_Style.css'
 
-//STYLE FILES
-
+//MAIN COMPONENTS:
 function StudentAttendQuizTest(props) {
   //stuff State
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [optionChosen, setOptionChosen] = useState("");
   const [score, setScore] = useState(0);
-  const [quizFinised, setQuizfinised] = useState(false);
-  const [restartQuiz, setRestartQuiz] = useState(false);
+  // const [quizFinised, setQuizfinised] = useState(false);
+  // const [restartQuiz, setRestartQuiz] = useState(false);
+
 
   //Click on Next Button Functionality
   const nextQuestion = (props) => {
@@ -29,7 +31,7 @@ function StudentAttendQuizTest(props) {
     setCurrentQuestion(currentQuestion + 1);
   };
 
-  //Finished Quiz Functinality==========
+  //Finished Quiz Functinality
   const finishedQuizQuestion = () => {
     //Redirect Quiz end screen when Quiz test is finished
     // setQuizfinised(props.history.push("/finished-quiz-screen"));
@@ -41,8 +43,8 @@ function StudentAttendQuizTest(props) {
 
   //Total Result and score out of Total question
   const handleRestartQuiz = () => {
-    // setRestartQuiz(props.history.push("/quiz-test"));
-    window.location.reload(false);
+    // setRestartQuiz(props.history.push("/quiz-test"));    //redirect 
+    window.location.reload(false);        // reload page
   };
 
   //Consoling parts:
@@ -52,20 +54,21 @@ function StudentAttendQuizTest(props) {
 
   return (
     <div className="quiz">
-      {/*================================Show the prompt==============================*/}
       {finishedQuizQuestion &&
       currentQuestion !== Question.length &&
       Question ? (
-        <div>
-          <h3>{Question[currentQuestion].prompt}</h3>
-          <div className="option-list-main">
-            <List className="optionList">
+        <div className='mainDiv'>
+          {/*================================Show the prompt==============================*/}
+          <h3 className='prompt-question'>{Question[currentQuestion].prompt}</h3>
+          <div className="option-list-main quizBody" id="mainBody" >
+            <List className="optionList  ">
               <ListItem>
                 <ListItemAvatar>A</ListItemAvatar>
                 <Button
                   variant="contained"
                   color="secondary"
-                  onClick={() => setOptionChosen("A")}
+                  id='option'
+                  onClick={() => setOptionChosen("A")}    //select the option 
                 >
                   {Question[currentQuestion].optionA}
                 </Button>
@@ -75,6 +78,7 @@ function StudentAttendQuizTest(props) {
                 <Button
                   variant="contained"
                   color="secondary"
+                 id='option'
                   onClick={() => setOptionChosen("B")}
                 >
                   {Question[currentQuestion].optionB}
@@ -85,6 +89,7 @@ function StudentAttendQuizTest(props) {
                 <Button
                   variant="contained"
                   color="secondary"
+                 id='option'
                   onClick={() => setOptionChosen("C")}
                 >
                   {Question[currentQuestion].optionC}
@@ -94,6 +99,7 @@ function StudentAttendQuizTest(props) {
                 <ListItemAvatar>D</ListItemAvatar>
                 <Button
                   variant="contained"
+                  id='option'
                   color="secondary"
                   onClick={() => setOptionChosen("D")}
                 >
@@ -102,10 +108,7 @@ function StudentAttendQuizTest(props) {
               </ListItem>
             </List>
           </div>
-
-          {/*=================condition true then FOR FINISHED QUIZ / condition false NEXT BUTTON ====================*/}
-
-          <div>
+          <div className='nextButton'>
             {/* {currentQuestion === Question.length - 1 ? (
               <Button
                 variant="contained"
@@ -118,7 +121,8 @@ function StudentAttendQuizTest(props) {
             ) : ( */}
             <Button
               variant="contained"
-              color="secondary"
+              color="primary"
+              id='nxtBtn'
               onClick={nextQuestion}
             >
               Next
@@ -128,7 +132,6 @@ function StudentAttendQuizTest(props) {
         </div>
       ) : (
         //=================================== Showing the result ==============================
-        // <h2>Score is {score}</h2>
         <div className="endScreen">
           <h1>Quiz Finished</h1>
           <h3>
@@ -137,7 +140,9 @@ function StudentAttendQuizTest(props) {
           <Button
             variant="contained"
             color="default"
+            id="exitBtn"
             onClick={handleRestartQuiz}
+            style={{background: 'steelblue',color:'white'}}
           >
             Restart Quiz Test
           </Button>
